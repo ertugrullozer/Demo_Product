@@ -1,6 +1,5 @@
 ﻿using DataAccessLayer.Abstract;
 using DataAccessLayer.Contcrete;
-using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,30 +8,34 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Repositories
 {
-    public class ProductDal : IProductDal
+    internal class GenericRepositori<T> : IGenericDal<T> where T : class
     {
         Context c = new Context();
-        public void Delete(Product p)
+        public void Delete(T t)
         {
-           c.Remove(p);
+            c.Remove(t);
             c.SaveChanges();
         }
 
-        public List<Product> GetList()
+        public T GetById(int id)
         {
-         return c.products.ToList();
+          return c.Set<T>().Find(id);
         }
 
-        public void Insert(Product p)
+        public List<T> GetList()
         {
-         
-            c.products.Add(p);
+            return c.Set<T>().ToList();
+        }
+
+        public void Insert(T t)
+        {
+            c.Add(t);
             c.SaveChanges();
         }
 
-        public void Update(Product p)
+        public void Updete(T t)
         {
-           c.products.Update(p);
+            c.Update(t);
             c.SaveChanges();
         }
     }
