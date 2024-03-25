@@ -12,8 +12,7 @@ namespace DataAccessLayer.Contcrete
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=DESKTOP-62HEUCO\\SQLEXPRESS;databse=DbNewCore1;" +
-                "integrated security=true;TrustServerCertificate=true;");
+            optionsBuilder.UseSqlServer("Server=DESKTOP-62HEUCO\\SQLEXPRESS;database=DbNewOopCore1;integrated security=true;TrustServerCertificate=True;");
         }
         public DbSet<Product> products { get; set; }
         public DbSet<Customer> customers { get; set; }
