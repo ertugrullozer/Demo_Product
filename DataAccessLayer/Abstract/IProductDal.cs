@@ -7,11 +7,12 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Abstract
 {
-    public interface IProductDal
+    public interface IProductDal:IGenericDal<Product>
     {
-        void Insert(Product p);
-        void Update(Product p);
-        void Delete(Product p);
-        List<Product> GetList();
+        //void Insert(Product p);
+        //void Update(Product p);
+        //void Delete(Product p);
+        //List<Product> Get();
+        //Bu Metotları yamak yerine Generic Repositoryden kalıtım sağladık
     }
 }
