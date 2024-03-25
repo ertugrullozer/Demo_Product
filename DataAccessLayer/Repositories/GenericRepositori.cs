@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Repositories
 {
-    internal class GenericRepositori<T> : IGenericDal<T> where T : class
+    public class GenericRepositori<T> : IGenericDal<T> where T : class
     {
         Context c = new Context();
         public void Delete(T t)
